@@ -5,6 +5,10 @@ public class TestaMetodo {
         conta.saldo = 100;
         conta.deposita(200);
         System.out.println(conta.saldo);
+        boolean resultado_saque = conta.saca(150);
+        System.out.println(conta.saldo);
+        System.out.println(resultado_saque);
+
 
     }
 }
