@@ -9,15 +9,25 @@ public class Conta {
 
     }
 
-    public boolean saca (double valor){
-       if(this.saldo>=valor){
-           this.saldo = this.saldo - valor;
-           return true;
+    public boolean saca (double valor) {
+        if (this.saldo >= valor) {
+            this.saldo = this.saldo - valor;
+            return true;
 
-       }else{
-           return false;
-       }
+        }
+        return false;
 
     }
 
-}
+    public boolean transfere (double valor, Conta destino){
+       if (this.saldo >= valor){
+           this.saldo = this.saldo - valor;
+           destino.deposita(valor);
+           return true;
+       }
+       return false;
+           }
+
+
+    }
+
