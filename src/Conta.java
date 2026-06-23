@@ -5,7 +5,7 @@ public class Conta {
     String titular;
 
    public void deposita(double valor){
-        this.saldo = saldo + valor;
+        this.saldo = this.saldo + valor;
 
     }
 
