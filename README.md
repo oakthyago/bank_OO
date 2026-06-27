@@ -4,7 +4,7 @@ Projeto de estudo de **Orientação a Objetos em Java**, feito a partir do curso
 **Java OO da Alura**. A base (classes `Conta` e `Cliente`, depósito, saque,
 transferência e associação entre objetos) segue o material do curso; em cima disso
 foi adicionada uma **implementação própria** de cadastro de agência com **dígito
-verificador no padrão do Banco do Brasil (módulo 11)**.
+verificador no mesmo padrão utilizado no Banco do Brasil (módulo 11)**.
 
 ## Conceitos praticados
 
