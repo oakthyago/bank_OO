@@ -1,7 +1,7 @@
 public class TestaAtributosPrivados {
     public static void main(String[] args) {
 
-        Conta conta = new Conta();
+        Conta conta = new Conta(9892, 100000);
 
         conta.deposita(1200);
         System.out.printf("Saldo da conta é %.2f%n", conta.getSaldo());

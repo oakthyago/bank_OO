@@ -6,7 +6,7 @@ public class testaBanco {
         oak.setCpf("123.456.789-00");
         oak.setProfissao("engenheiro");
 
-        Conta contaDoThyago = new Conta();
+        Conta contaDoThyago = new Conta(446, 37137);
         contaDoThyago.deposita(1621);
 
         contaDoThyago.setTitular(oak); //assossiação de objetos
@@ -14,7 +14,7 @@ public class testaBanco {
         System.out.printf("O nome do cliente é : %s%n",contaDoThyago.getTitular().getNome());
 
         // atribuição direta
-        Conta contaDaVitoria = new Conta();
+        Conta contaDaVitoria = new Conta(446, 48480);
 
         contaDaVitoria.setTitular(new Cliente());
         contaDaVitoria.getTitular().setNome("Vitoria Cristina");

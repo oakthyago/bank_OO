@@ -1,9 +1,28 @@
 public class Conta {
     private double saldo;
+
     private int agencia;
     private String digitoVerificador;
     private int numero;
     private Cliente titular;
+
+    public Conta (int age, int conta){
+        this.agencia = age;
+        this.numero = conta;
+
+
+    }
+
+    public Cliente getTitular() {return this.titular;}
+
+
+
+    public void setCliente(String nomeCliente) {
+
+    }
+
+    public int getAgencia() { return this.agencia; }
+    public int getNumero() {return this.numero;}
 
     public void deposita(double valor) {
         this.saldo = this.saldo + valor;
@@ -30,6 +49,11 @@ public class Conta {
         return this.saldo;
     }
 
+    public String getDigitoVerificador() {
+        return this.digitoVerificador;
+    }
+
+
     public void setAgencia(int numeroAgencia) {
         if (numeroAgencia <= 0) {
             throw new IllegalArgumentException("Agência deve ser um número positivo");
@@ -38,16 +62,26 @@ public class Conta {
         this.digitoVerificador = calculaDigitoVerificador(numeroAgencia);
     }
 
-    public void setCliente (String nomeCliente){
-
-    }
-
-    public int getAgencia() {
-        return this.agencia;
-    }
-
-    public String getDigitoVerificador() {
-        return this.digitoVerificador;
+    private String calculaDigitoVerificador ( int numeroAgencia){
+            int soma = 0;
+            int peso = 2;
+            while (numeroAgencia > 0) {
+                int digito = numeroAgencia % 10;
+                soma += digito * peso;
+                numeroAgencia /= 10;
+                peso++;
+                if (peso > 9) {
+                    peso = 2;
+                }
+            }
+            int dv = 11 - (soma % 11);
+            if (dv == 10) {
+                return "X";
+            }
+            if (dv == 11) {
+                return "0";
+            }
+            return String.valueOf(dv);
     }
 
     public String getAgenciaCompleta() {
@@ -58,30 +92,5 @@ public class Conta {
         this.titular = titular;
     }
 
-    public Cliente getTitular() {
-        return this.titular;
-    }
-
-    private String calculaDigitoVerificador(int numeroAgencia) {
-        int soma = 0;
-        int peso = 2;
-        while (numeroAgencia > 0) {
-            int digito = numeroAgencia % 10;
-            soma += digito * peso;
-            numeroAgencia /= 10;
-            peso++;
-            if (peso > 9) {
-                peso = 2;
-            }
-        }
-        int dv = 11 - (soma % 11);
-        if (dv == 10) {
-            return "X";
-        }
-        if (dv == 11) {
-            return "0";
-        }
-        return String.valueOf(dv);
-    }
 
 }
