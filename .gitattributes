@@ -1,0 +1,13 @@
+# Normaliza finais de linha: o repositório guarda sempre LF,
+# e cada máquina recebe o formato nativo do seu sistema operacional.
+* text=auto
+
+# Arquivos de código Java: garante LF dentro do repositório.
+*.java text eol=lf
+
+# Arquivos binários: nunca mexer nos bytes (não normalizar linhas).
+*.jar binary
+*.class binary
+*.png binary
+*.jpg binary
+*.pdf binary

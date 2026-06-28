@@ -2,13 +2,14 @@ public class Conta {
     private double saldo;
 
     private int agencia;
-    private String digitoVerificador;
+    private String digitoVerificadorAgencia;
+    private String digitoVerificadorNumero;
     private int numero;
     private Cliente titular;
 
     public Conta (int age, int conta){
-        this.agencia = age;
-        this.numero = conta;
+        this.setAgencia(age);
+        this.setNumero(conta);
 
 
     }
@@ -49,8 +50,11 @@ public class Conta {
         return this.saldo;
     }
 
-    public String getDigitoVerificador() {
-        return this.digitoVerificador;
+    public String getDigitoVerificadorAgencia() {
+        return this.digitoVerificadorAgencia;
+    }
+    public String getDigitoVerificadorNumero() {
+        return this.digitoVerificadorNumero;
     }
 
 
@@ -59,7 +63,18 @@ public class Conta {
             throw new IllegalArgumentException("Agência deve ser um número positivo");
         }
         this.agencia = numeroAgencia;
-        this.digitoVerificador = calculaDigitoVerificador(numeroAgencia);
+        this.digitoVerificadorAgencia = calculaDigitoVerificador(numeroAgencia);
+    }
+
+    public void setNumero (int numeroConta){
+        if (numeroConta <= 0){
+            throw new IllegalArgumentException("Número da conta deve ser positivo");
+        }
+        this.numero = numeroConta;
+        this.digitoVerificadorNumero = calculaDigitoVerificador(numeroConta);
+
+
+
     }
 
     private String calculaDigitoVerificador ( int numeroAgencia){
@@ -85,12 +100,20 @@ public class Conta {
     }
 
     public String getAgenciaCompleta() {
-        return this.agencia + "-" + this.digitoVerificador;
+        return this.agencia + "-" + this.digitoVerificadorAgencia;
     }
 
     public void setTitular(Cliente titular) {
         this.titular = titular;
     }
+
+    public String getNumeroCompleta() {
+        return this.numero + "-" + this.digitoVerificadorNumero;
+    }
+
+
+
+
 
 
 }
