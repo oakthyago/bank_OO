@@ -15,10 +15,13 @@ public class testaBanco {
 
         // atribuição direta
         Conta contaDaVitoria = new Conta();
+
         contaDaVitoria.setTitular(new Cliente());
         contaDaVitoria.getTitular().setNome("Vitoria Cristina");
-        System.out.printf("O nome do cliente com atribuição direta é : %s%n",contaDaVitoria.getTitular().getNome());
 
+        System.out.printf("O nome do cliente com atribuição direta é : %s%n",contaDaVitoria.getTitular().getNome());
+        contaDaVitoria.getTitular().setProfissao("Enfermeira");
+        System.out.printf("A profissão de %s é %s", contaDaVitoria.getTitular().getNome(),contaDaVitoria.getTitular().getProfissao());
 
 
     }
