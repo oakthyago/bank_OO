@@ -6,13 +6,18 @@ public class Conta {
     private String digitoVerificadorNumero;
     private int numero;
     private Cliente titular;
+    private static int total; // contador da classe conta
 
     public Conta (int age, int conta){
         this.setAgencia(age);
         this.setNumero(conta);
-
+        total +=1;
 
     }
+    public int getTotal(){
+        return this.total;
+    }
+
 
     public Cliente getTitular() {return this.titular;}
 
@@ -58,7 +63,7 @@ public class Conta {
     }
 
 
-    public void setAgencia(int numeroAgencia) {
+    private void setAgencia(int numeroAgencia) {
         if (numeroAgencia <= 0) {
             throw new IllegalArgumentException("Agência deve ser um número positivo");
         }
@@ -66,7 +71,8 @@ public class Conta {
         this.digitoVerificadorAgencia = calculaDigitoVerificador(numeroAgencia);
     }
 
-    public void setNumero (int numeroConta){
+    // tornar setNumero privado impede modificar o numero da conta fora da classe conta
+    private void setNumero (int numeroConta){
         if (numeroConta <= 0){
             throw new IllegalArgumentException("Número da conta deve ser positivo");
         }
